@@ -48,3 +48,6 @@ multiplyBtn.addEventListener('click' , multiply);
 divideBtn.addEventListener('click' , divide);
 
 
+function  add(){
+    add() = 1 +1
+}
