@@ -17,7 +17,7 @@ function createAndWriteOutput(operator , resultBeforeCalc , calcNumber) {
 function writeToLog(
     operationIdentifier,
     prevResult,
-    operationNumber,
+    operationNumber, 
     newResult
 ) {
     const logEntry = {
@@ -31,20 +31,27 @@ function writeToLog(
     console.log(logEntries);
 }
 
-function add(){
+function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
-    currentResult += parseInt(userInput.value);
+    let mathOperator;
+    if(calculationType === 'ADD'){
+        currentResult += enteredNumber;
+        mathOperator = '+';
+    } else {
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    }
     createAndWriteOutput('+' , initialResult , enteredNumber)
     writeToLog("ADD" , initialResult , enteredNumber , currentResult )
 }
 
+function add(){
+   calculateResult('ADD')
+}
+
 function subtract() {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult -= parseInt(userInput.value);
-    createAndWriteOutput('-' , initialResult , enteredNumber)
-    writeToLog("SUBTRACT" , initialResult , enteredNumber , currentResult )
+   calculateResult('SUBTRACT')
     
 }
 
